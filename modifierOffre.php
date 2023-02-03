@@ -1,5 +1,6 @@
 <?php
 $conn=mysqli_connect("localhost","root","","stage");
+include("verificationAdmin.php");
 $resut=mysqli_query($conn,"select * from offre");
 $resultat=mysqli_fetch_all($resut);
 ?>
@@ -24,8 +25,8 @@ $resultat=mysqli_fetch_all($resut);
         ";
     }?>
     </select>
-    <input type='submit' name='choisir'value='Choisir'>
-    
+    <input type='submit' name='choisir'value='Choisir'><br><br>
+    <center>
     <?php
     if(isset($_POST['choisir']) && !empty($_POST['entreprise'])){
         echo '
@@ -80,7 +81,7 @@ $resultat=mysqli_fetch_all($resut);
     }
     ?>
     
-    <h3 id="msg" style="color: red;"><?php echo $msg??null ?></h3>
+    <h3 id="msg" style="color: red;"><?php echo $msg??null ?></h3></center>
     </form>
 </body>
 </html>

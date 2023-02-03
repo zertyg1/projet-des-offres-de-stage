@@ -1,5 +1,6 @@
 <?php
 $conn=mysqli_connect("localhost","root","","stage");
+include("verificationAdmin.php");
 $resut=mysqli_query($conn,"select * from offre");
 $resultat=mysqli_fetch_all($resut);
 ?>
@@ -13,9 +14,9 @@ $resultat=mysqli_fetch_all($resut);
 </head>
 <body>
     <form action="" method="post">
-        <h2 style="color: blue;">Liste des stages</h2>
         <a href="ajoutOffre.php">Ajouter une offre</a>
         <a href="modifierOffre.php">Modifer une offre</a><br><br>
+        <center><h2 style="color: blue;">Liste des stages</h2>
         <table border="">
             <tr>
                 <th>Entreptrise de stage</th>
@@ -55,6 +56,7 @@ $resultat=mysqli_fetch_all($resut);
         ?>
         </table>
         <h3 id="msg" style="color: green;"><?php echo $msg??null ?></h3>
+        <input type="submit" value="Deconnexion" name="logout"></center>
     </form>
 </body>
 </html>
