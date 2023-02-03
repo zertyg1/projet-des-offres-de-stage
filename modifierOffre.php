@@ -44,21 +44,43 @@ $resultat=mysqli_fetch_all($resut);
         $resultatEnt=mysqli_fetch_all($resEnt);
         foreach ($resultatEnt as $reEnt) {
         echo"
-            <td><input type='text' name='nomEnt' value='$reEnt[0]'></td>
-                    <td><input type='text' name='ville' value='$reEnt[1]'></td>
-                    <td><input type='text' name='codePostal' value='$reEnt[2]'></td>
-                    <td><input type='text' name='nomM' value='$reEnt[3]'></td>
-                    <td><input type='text' style='width:278px' name='email' value='$reEnt[4]'></td>
-                    <td><input type='text' name='tele' value='$reEnt[5]'></td>
-                    <td><input type='button' name='modifier' value='Modifer'></td>
-        </tr>";}
+            <td><input type='hidden' name='nomEnt' value='$reEnt[0]'>$reEnt[0]</td>
+            <td><input type='text' name='ville' value='$reEnt[1]'></td>
+            <td><input type='text' name='codePostal' value='$reEnt[2]'></td>
+            <td><input type='text' name='nomM' value='$reEnt[3]'></td>
+            <td><input type='text' style='width:278px' name='email' value='$reEnt[4]'></td>
+            <td><input type='text' name='tele' value='$reEnt[5]'></td>
+            <td><input type='submit' name='modifier' value='Modifer'></td>
+        </tr>
+        </table>";}
     }
     if(isset($_POST['modifier'])){
-        echo"niiiiice";
+        if(preg_match("#^[0-9]{5}$#",$_POST['codePostal']) && preg_match('#(0|\+33)[1-9]( *[0-9]{2}){4}#',$_POST['tele'])){
+            $ent=$_POST['nomEnt'];
+            $ville=$_POST['ville'];
+            $cp=$_POST['codePostal'];
+            $maitre=$_POST['nomM'];
+            $email=$_POST['email'];
+            $tele=$_POST['tele'];
+            $update=mysqli_query($conn,"UPDATE `offre` SET `ville`='$ville',`codePostal`='$cp',`maitreStg`='$maitre',`mail`='$email',`telephone`='$tele' WHERE `nomEnt`='$ent'");
+            header("location:listeAdmin.php");
+        }
+        else{
+            $msg= "<script>
+                    var msg=document.getElementById('msg');
+                    function message(){
+                        msg.innerHTML='remplir les cases avec les donnees correctes';
+                        setTimeout(()=>{
+                        msg.innerHTML='';
+                        },3000)
+                    }
+                    message();
+                    </script>";
+        }
     }
     ?>
     
-    <h3 id="msg" style="color: green;"><?php echo $msg??null ?></h3>
+    <h3 id="msg" style="color: red;"><?php echo $msg??null ?></h3>
     </form>
 </body>
 </html>
