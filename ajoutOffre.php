@@ -10,7 +10,8 @@ if(isset($_POST['ajouter'])){
         $maitre=$_POST['mStage'];
         $mail=$_POST['email'];
         $tele=$_POST['tele'];
-        $insert=mysqli_query($conn,"INSERT INTO `offre`(`nomEnt`, `ville`, `codePostal`, `maitreStg`, `mail`, `telephone`) VALUES ('$nomEnt','$ville','$code','$maitre','$mail','$tele')");
+        $annee=$_POST['annee'];
+        $insert=mysqli_query($conn,"INSERT INTO `offre`(`nomEnt`, `ville`, `codePostal`, `maitreStg`, `mail`, `telephone`, `annee`) VALUES ('$nomEnt','$ville','$code','$maitre','$mail','$tele', '$annee')");
         header("location:listeAdmin.php");
     }
 }else $msg= "<script>
@@ -31,15 +32,23 @@ message();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
-    
-<a href="listeAdmin.php">liste des Offres</a>
+    <div class="navbar navbar-default">
+    	<div class="container-fluid">
+            <ul class="nav navbar-nav">
+    			<li><a href="listeAdmin.php">liste des Offres</a></li>
+				<li><a href="ajoutOffre.php">Ajouter une offre</a></li>
+				<li><a href="modifierOffre.php">Modifer une offre</a></li>
+			</ul>
+    	</div>
+    </div>
     <form action="" method="post">
     <center>
         <h1>Ajouter une offre</h1>
-        <table border="">
+        <table class="table">
             <tr>
                 <th>Entreptrise de stage</th>
                 <th>Ville</th>
@@ -47,6 +56,7 @@ message();
                 <th>Maitre de stage</th>
                 <th>Adresse mail de maitre de stage</th>
                 <th>Téléphone</th>
+                <th>Année</th>
             </tr>
             <tr>
                 <td><input type='text' name='nomEnt'></td>
@@ -55,10 +65,12 @@ message();
                 <td><input type='text' name='mStage'></td>
                 <td><input type="email" style="width: 280px" name='email'></td>
                 <td><input type='text' name='tele'></td>
+                <td><input type='text' name='annee'></td>
             </tr>
         </table>
-        <input type="submit" value="Ajouter" name="ajouter">
+        <input type="submit" value="Ajouter" class='btn btn-success' name="ajouter">
         <h3 id="msg" style="color: red;"><?php echo $msg??null ?></h3>
+
     </center>
     </form>
 </body>

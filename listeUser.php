@@ -10,12 +10,13 @@ $resultat=mysqli_fetch_all($resut);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
     <form action="" method="post">
-    <center><h2 style="color: blue;">Liste des stages</h2>
-        <table border="">
+    <center><h2 style="color: blue;">Liste des stages</h2><br>
+        <table class="table">
             <tr>
                 <th>Entreptrise de stage</th>
                 <th>Ville</th>
@@ -23,6 +24,7 @@ $resultat=mysqli_fetch_all($resut);
                 <th>Maitre de stage</th>
                 <th>Adresse mail de maitre de stage</th>
                 <th>Téléphone</th>
+                <th>Année</th>
             </tr>
             <?php
             foreach($resultat as $res){
@@ -33,11 +35,12 @@ $resultat=mysqli_fetch_all($resut);
                     <td><input type='hidden' name='nomM' value='$res[3]'>$res[3]</td>
                     <td><input type='hidden' name='email' value='$res[4]'>$res[4]</td>
                     <td><input type='hidden' name='email' value='$res[5]'>$res[5]</td>
+                    <td><input type='hidden' name='annee' value='$res[7]'>$res[7]</td>
                 </tr>";
         }
         ?>
         </table><br><br>
-        <input type="submit" value="Deconnexion" name="logout">
+        <input type="submit" value="Deconnexion" class='btn btn-success' name="logout">
     </form>
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 03 fév. 2023 à 23:34
+-- Généré le : mer. 22 fév. 2023 à 13:43
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.0.13
 
@@ -55,19 +55,20 @@ CREATE TABLE `offre` (
   `maitreStg` varchar(20) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `telephone` varchar(10) NOT NULL,
-  `id` int(3) NOT NULL
+  `id` int(3) NOT NULL,
+  `anne` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `offre`
 --
 
-INSERT INTO `offre` (`nomEnt`, `ville`, `codePostal`, `maitreStg`, `mail`, `telephone`, `id`) VALUES
-('OGEST', 'PALAISEAU', 91120, 'M.GOULLEY Aurelien', 'aurelien.goulley@ogest.fr', '0986228653', 1),
-('TAXI HAND GO', 'LE HAVRE', 76600, 'M.LECERF Sébastien', 'seb.lecref@gmail.com', '0637197700', 2),
-('CITY CAFE 76', 'LE HAVRE', 76600, 'M.DOUANGVINCHITH Bru', 'citycafe135@gmail.com', '0988366269', 3),
-('CNAM', 'Evreux', 27001, 'Mme.GAUFFRAIU Lauren', 'laurence.gauffraiu@assurance-maladie.fr', '0661818053', 4),
-('ACANTHIQUE Sarl ', 'ST BRIEUC ', 22000, 'Mme Anne-Marie DAVID', 'p.janowsky@acanthique.com', '0296772803', 6);
+INSERT INTO `offre` (`nomEnt`, `ville`, `codePostal`, `maitreStg`, `mail`, `telephone`, `id`, `anne`) VALUES
+('OGEST', 'PALAISEAU', 91120, 'M.GOULLEY Aurelien', 'aurelien.goulley@ogest.fr', '0986228653', 1, 2022),
+('TAXI HAND GO', 'LE HAVRE', 76600, 'M.LECERF Sébastien', 'seb.lecref@gmail.com', '0637197700', 2, 2020),
+('CITY CAFE 76', 'LE HAVRE', 76600, 'M.DOUANGVINCHITH Bru', 'citycafe135@gmail.com', '0988366269', 3, 2019),
+('CNAM', 'Evreux', 27001, 'Mme.GAUFFRAIU Lauren', 'laurence.gauffraiu@assurance-maladie.fr', '0661818053', 4, 2015),
+('ACANTHIQUE Sarl ', 'ST BRIEUC ', 22000, 'Mme Anne-Marie DAVID', 'p.janowsky@acanthique.com', '0296772803', 6, 2017);
 
 --
 -- Index pour les tables déchargées
@@ -87,7 +88,7 @@ ALTER TABLE `offre`
 -- AUTO_INCREMENT pour la table `offre`
 --
 ALTER TABLE `offre`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

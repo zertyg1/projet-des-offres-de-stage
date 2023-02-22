@@ -23,6 +23,7 @@ if(isset($_POST['register'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>register</title>
 </head>
@@ -48,7 +49,7 @@ if(isset($_POST['register'])){
                 <th><input type="password" placeholder="PASSWORD" name="pass" value="<?php echo $_POST['pass'] ?? null?>"></th>
             </tr>
             <tr>
-                <th colspan="2"><input type="submit" value="Register" name="register"></th>
+                <th colspan="2"><center><input type="submit" value="Register" class='btn btn-primary' name="register"></center></th>
             </tr>
             <?php 
             if($valide??null)
