@@ -1,8 +1,16 @@
 <?php
 $conn=mysqli_connect("localhost","root","","stage");
 include("verificationAdmin.php");
-$resut=mysqli_query($conn,"select * from offre");
+if (isset($_POST['search'])) {
+    $search_term = $_POST['search_term'];
+    $resut = mysqli_query($conn, "SELECT * FROM offre WHERE anne LIKE '%$search_term%' OR nomEnt LIKE '%$search_term%' OR ville LIKE '%$search_term%'");
+    
 $resultat=mysqli_fetch_all($resut);
+} else {
+    $resut=mysqli_query($conn,"SELECT * FROM offre");
+    
+$resultat=mysqli_fetch_all($resut);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +30,10 @@ $resultat=mysqli_fetch_all($resut);
 				<li><a href="ajoutOffre.php">Ajouter une offre</a></li>
 				<li><a href="modifierOffre.php">Modifer une offre</a></li>
 			</ul>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Recherche" name="search_term">
+                </div>
+                <button type="submit" class="btn btn-default" name="search"><span class="glyphicon glyphicon-search"></span></button>
 		</div>
 	</div>
         <center><h2 style="color: blue;">Liste des stages</h2><br>
