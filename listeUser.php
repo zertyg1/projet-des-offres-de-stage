@@ -7,12 +7,19 @@ if(isset($_POST['anne']) && !empty($_POST['anne'])) {
     $anne = $_POST['anne'];
 
     // Sélectionner les offres pour l'année spécifiée
-    $resut=mysqli_query($conn,"SELECT * FROM offre WHERE anne = '$anne'");
+    $resut=mysqli_query($conn,"SELECT * FROM offre WHERE annee = '$anne'");
     $resultat=mysqli_fetch_all($resut);
 } else if(empty($_POST['anne'])){
     // Sélectionner toutes les offres
     $resut=mysqli_query($conn,"SELECT * FROM offre");
     $resultat=mysqli_fetch_all($resut);
+}
+
+// Tri de la table en fonction de la colonne "Entreprise de stage"
+if (isset($_GET['sort']) && $_GET['sort'] == 'nomEnt') {
+    usort($resultat, function($a, $b) {
+        return strcmp($a[0], $b[0]);
+    });
 }
 
 ?>
@@ -37,7 +44,7 @@ if(isset($_POST['anne']) && !empty($_POST['anne'])) {
             <br><br>
             <center> <table class="table">
                 <tr>
-                    <th>Entreprise de stage</th>
+                    <th><a href="?sort=nomEnt">Entreprise de stage</a></th>
                     <th>Ville</th>
                     <th>Code Postal</th>
                     <th>Maître de stage</th>

@@ -3,13 +3,20 @@ $conn=mysqli_connect("localhost","root","","stage");
 include("verificationAdmin.php");
 if (isset($_POST['search'])) {
     $search_term = $_POST['search_term'];
-    $resut = mysqli_query($conn, "SELECT * FROM offre WHERE anne LIKE '%$search_term%' OR nomEnt LIKE '%$search_term%' OR ville LIKE '%$search_term%'");
+    $resut = mysqli_query($conn, "SELECT * FROM offre WHERE annee LIKE '%$search_term%' OR nomEnt LIKE '%$search_term%' OR ville LIKE '%$search_term%' OR maitreStg LIKE '%$search_term%'
+    OR mail LIKE '%$search_term%' OR codePostal LIKE '%$search_term%' OR telephone LIKE '%$search_term%'");
     
 $resultat=mysqli_fetch_all($resut);
 } else {
     $resut=mysqli_query($conn,"SELECT * FROM offre");
     
 $resultat=mysqli_fetch_all($resut);
+}
+// Tri de la table en fonction de la colonne "Entreprise de stage"
+if (isset($_GET['sort']) && $_GET['sort'] == 'nomEnt') {
+    usort($resultat, function($a, $b) {
+        return strcmp($a[0], $b[0]);
+    });
 }
 ?>
 <!DOCTYPE html>
@@ -39,7 +46,7 @@ $resultat=mysqli_fetch_all($resut);
         <center><h2 style="color: blue;">Liste des stages</h2><br>
         <table class="table">
             <tr>
-                <th>Entreptrise de stage</th>
+                <th><a href="?sort=nomEnt">Entreprise de stage</a></th>
                 <th>Ville</th>
                 <th>Code Postal</th>
                 <th>Maitre de stage</th>
