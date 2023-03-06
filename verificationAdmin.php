@@ -8,5 +8,5 @@ if($resRowLog[0]!=$_SESSION['user']&& $resRowLog[1]!=$_SESSION['password']){
 if(isset($_POST['logout'])){
     session_destroy();
     header("location:login.php");  
-}       
+}
 ?>

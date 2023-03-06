@@ -1,45 +1,50 @@
 <?php
-$conn=mysqli_connect("localhost","root","","stage");
+$conn = mysqli_connect("localhost", "root", "", "stage");
 include("verificationAdmin.php");
-$resut=mysqli_query($conn,"select * from offre");
-$resultat=mysqli_fetch_all($resut);
+$resut = mysqli_query($conn, "select * from offre");
+$resultat = mysqli_fetch_all($resut);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Modifier une offre</title>
 </head>
+
 <body>
     <div class="navbar navbar-default">
-    	<div class="container-fluid">
+        <div class="container-fluid">
             <ul class="nav navbar-nav">
-    			<li><a href="listeAdmin.php">liste des Offres</a></li>
-				<li><a href="ajoutOffre.php">Ajouter une offre</a></li>
-				<li><a href="modifierOffre.php">Modifer une offre</a></li>
-			</ul>
-    	</div>
+                <li><a href="listeAdmin.php">Liste des stages</a></li>
+                <li><a href="ajoutOffre.php">Ajouter une offre</a></li>
+                <li><a href="logout.php">Déconnexion</a></li>
+            </ul>
+        </div>
     </div>
     <div class="container">
-    <form action="" method="post">
-        Entreprise:
-        <select name="entreprise" id="ent">
-        <option value="" disabled selected></option>
-        <?php
-        foreach($resultat as $res){
-            echo"
+        <form action="" method="post">
+        <h1>Modifier une offre</h1>
+        <br>
+            <h3 name="entreprise">Entreprise:</h3>
+            <select name="entreprise" id="ent">
+                <option value="" disabled selected></option>
+                <?php
+                foreach ($resultat as $res) {
+                    echo "
                 <option value='$res[0]'>$res[0]</option>
             ";
-        }?>
-        </select>
-        <input type='submit' class='btn btn-primary' name='choisir'value='Choisir'><br><br>
+                } ?>
+            </select>
+            <input type='submit' class='btn btn-primary' name='choisir' value='Choisir'><br><br>
     </div>
-        <center>
+    <center>
         <?php
-        if(isset($_POST['choisir']) && !empty($_POST['entreprise'])){
+        if (isset($_POST['choisir']) && !empty($_POST['entreprise'])) {
             echo '
             <table class="table">
             <tr>
@@ -47,55 +52,48 @@ $resultat=mysqli_fetch_all($resut);
                 <th>Ville</th>
                 <th>Code Postal</th>
                 <th>Maitre de stage</th>
-                <th style="width: 280px;">Adresse mail de maitre de stage</th>
+                <th>Adresse mail de maitre de stage</th>
                 <th>Téléphone</th>
                 <th>Année</th>
+                <th>Modifier</th>
             </tr>
             <tr>';
-            $ent=$_POST['entreprise'];
-            $resEnt=mysqli_query($conn,"select * from offre where nomEnt='".$ent."'");
-            $resultatEnt=mysqli_fetch_all($resEnt);
+            $ent = $_POST['entreprise'];
+            $resEnt = mysqli_query($conn, "select * from offre where nomEnt='" . $ent . "'");
+            $resultatEnt = mysqli_fetch_all($resEnt);
             foreach ($resultatEnt as $reEnt) {
-            echo"
+                echo "
                 <td><input type='hidden' name='nomEnt' value='$reEnt[0]'>$reEnt[0]</td>
                 <td><input type='text' name='ville' value='$reEnt[1]'></td>
                 <td><input type='text' name='codePostal' value='$reEnt[2]'></td>
-                <td><input type='text' name='nomM' value='$reEnt[3]'></td>
-                <td><input type='text' style='width:278px' name='email' value='$reEnt[4]'></td>
-                <td><input type='text' name='tele' value='$reEnt[5]'></td>
+                <td><input type='text' name='maitreStg' value='$reEnt[3]'></td>
+                <td><input type='mail' name='mail' value='$reEnt[4]'></td>
+                <td><input type='text' name='telephone' value='$reEnt[5]'></td>
                 <td><input type='text' name='annee' value='$reEnt[7]'></td>
                 <td><input type='submit' name='modifier' class='btn btn-warning' value='Modifer'></td>
             </tr>
-            </table>";}
-        }
-        if(isset($_POST['modifier'])){
-            if(preg_match("#^[0-9]{5}$#",$_POST['codePostal']) && preg_match('#(0|\+33)[1-9]( *[0-9]{2}){4}#',$_POST['tele'])){
-                $ent=$_POST['nomEnt'];
-                $ville=$_POST['ville'];
-                $cp=$_POST['codePostal'];
-                $maitre=$_POST['nomM'];
-                $email=$_POST['email'];
-                $tele=$_POST['tele'];
-                $annee=$_POST['annee'];
-                $update=mysqli_query($conn,"UPDATE `offre` SET `ville`='$ville',`codePostal`='$cp',`maitreStg`='$maitre',`mail`='$email',`telephone`='$tele',`annee`='$annee' WHERE `nomEnt`='$ent'");
-                header("location:listeAdmin.php");
+            </table>";
             }
-            else{
-                $msg= "<script>
-                        var msg=document.getElementById('msg');
-                        function message(){
-                            msg.innerHTML='remplir les cases avec les donnees correctes';
-                            setTimeout(()=>{
-                            msg.innerHTML='';
-                            },3000)
-                        }
-                        message();
-                        </script>";
+        }
+        if (isset($_POST['modifier'])) {
+            if (preg_match("#^[0-9]{5}$#", $_POST['codePostal']) && preg_match('#(0|\+33)[1-9]( *[0-9]{2}){4}#', $_POST['telephone'])) {
+                $ent = $_POST['nomEnt'];
+                $ville = $_POST['ville'];
+                $cp = $_POST['codePostal'];
+                $maitre = $_POST['maitreStg'];
+                $mail = $_POST['mail'];
+                $telephone = $_POST['telephone'];
+                $annee = $_POST['annee'];
+                $update = mysqli_query($conn, "UPDATE `offre` SET `ville`='$ville',`codePostal`='$cp',`maitreStg`='$maitre',`mail`='$mail',`telephone`='$telephone',`annee`='$annee' WHERE `nomEnt`='$ent'");
+                echo '<script language="javascript">
+                         alert("Offre modifié");
+                      </script>';
             }
         }
         ?>
-
-        <h3 id="msg" style="color: red;"><?php echo $msg??null ?></h3></center>
+        <h3 id="msg" style="color: red;"><?php echo $msg ?? null ?></h3>
+    </center>
     </form>
 </body>
+
 </html>

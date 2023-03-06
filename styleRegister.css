@@ -1,0 +1,188 @@
+@import "~bootstrap/css/bootstrap";
+
+body {
+  background-color: rgb(190, 190, 190);
+  font-family: system-ui;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  width: 60%;
+  height: auto;
+  background-color: #0085b9;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  width: 100%;
+}
+
+input[type="submit"] {
+  color: #2ea81c;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+
+
+input[type="submit"]:hover {
+  background-color: #2ea81c;
+  /*change la couleur du fond du lien*/
+  color: #ffffff;
+  /*change la couleur du texte du lien*/
+
+}
+
+h1 {
+  font-family: "Times New Roman";
+  color: #ffffff;
+  background-color: #0085b9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 60%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+h2 {
+  color: #ffffff;
+  background-color: #2ea81c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 60%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+h3 {
+  color: #ffffff;
+  background-color: #2ea81c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 60%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+h4 {
+  background-color: #ffffff;
+}
+
+table {
+  border: #000000;
+  border-spacing: 3px;
+
+}
+
+a {
+  color: #2ea81c;
+  background-color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 60%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+a:hover {
+  background-color: #2ea81c;
+  /*change la couleur du fond du lien*/
+  color: #ffffff;
+  /*change la couleur du texte du lien*/
+  text-decoration: none;
+}
+
+td{
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 60%;
+  height: auto;
+  background-color: lightskyblue;
+  padding: 10px;
+  border-radius: 10px;
+  border: lightskyblue;
+}
+
+td[name="pasInscrit"]{
+  width: 100%;
+}
+
+th {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 60%;
+  height: auto;
+  background-color: #0085b9;
+  padding: 10px;
+  border-radius: 10px;
+  border: lightskyblue;
+}
+
+p {
+  color: #2ea81c;
+  background-color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 60%;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.BasDePage {
+  text-align: center;
+  color: #fff;
+  background-color: #0f6bbd;
+}
