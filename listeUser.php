@@ -44,35 +44,48 @@ else {
 </head>
 
 <body>
-    <form action="" method="post">
-        <div class="navbar navbar-default">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <li><a href="listeUser.php" style="color: green; background-color: white;">Liste des stages</a></li>
-                    <li><a href="logout.php" style="color: red; background-color: white;">Déconnexion</a></li><br><br><br>
-                    <input type="text" class="form-control" placeholder="Recherche" name="search_term"><br>
-                    <button type="submit" class="btn btn-default" name="search"><span class="glyphicon glyphicon-search"></span></button>
-                    <a href="listeUser.php">Retirer filtre(s)</a>
-
-                </ul>
-            </div>
+    <header>
+        <div class="HautDePage">
+        Réalisé par :
+            <strong>Victor ROBILLARD</strong>,
+            <strong>Abdellah ADANSAR</strong>
+            <br>
+            Pour le projet :
+            <strong>Liste des offres de stage</strong>
+            <br>
+            Supervisé par :
+            <strong> Mme Hadhoum BOUKACHOUR </strong>
         </div>
-        <center>
-            <h2>Liste des stages</h2>
-        </center>
-        <table class="table">
-            <tr>
-                <th><a href="?sort=nomEnt&order=<?php echo $sort == 'nomEnt' && $order == 'asc' ? 'desc' : 'asc'; ?>">Nom de l'entreprise du stage</a></th>
-                <th><a href="?sort=ville&order=<?php echo $sort == 'ville' && $order == 'asc' ? 'desc' : 'asc'; ?>">Ville</a></th>
-                <th><a href="?sort=codePostal&order=<?php echo $sort == 'codePostal' && $order == 'asc' ? 'desc' : 'asc'; ?>">Code Postal</a></th>
-                <th><a href="?sort=maitreStg&order=<?php echo $sort == 'maitreStg' && $order == 'asc' ? 'desc' : 'asc'; ?>">Maître de stage</a></th>
-                <th><a href="?sort=mail&order=<?php echo $sort == 'mail' && $order == 'asc' ? 'desc' : 'asc'; ?>">Adresse mail du maître de stage</a></th>
-                <th><a href="?sort=telephone&order=<?php echo $sort == 'telephone' && $order == 'asc' ? 'desc' : 'asc'; ?>">Téléphone</a></th>
-                <th><a href="?sort=annee&order=<?php echo $sort == 'annee' && $order == 'asc' ? 'desc' : 'asc'; ?>">Année</a></th>
-            </tr>
-            <?php
-            foreach ($resultat as $res) {
-                echo "<tr>
+    </header>
+    <main>
+        <form action="" method="post">
+            <div class="navbar navbar-default">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li><a href="logout.php" style="color: red; background-color: white;">Déconnexion</a></li><br><br><br>
+                        <input type="text" class="form-control" placeholder="Recherche" name="search_term"><br>
+                        <button type="submit" class="btn btn-default" name="search"><span class="glyphicon glyphicon-search"></span></button>
+                        <a href="listeUser.php">Retirer filtre(s)</a>
+
+                    </ul>
+                </div>
+            </div>
+            <center>
+                <h2>Liste des stages</h2>
+            </center>
+            <table class="table">
+                <tr>
+                    <th><a href="?sort=nomEnt&order=<?php echo $sort == 'nomEnt' && $order == 'asc' ? 'desc' : 'asc'; ?>">Nom de l'entreprise du stage</a></th>
+                    <th><a href="?sort=ville&order=<?php echo $sort == 'ville' && $order == 'asc' ? 'desc' : 'asc'; ?>">Ville</a></th>
+                    <th style="width: 10%;"><a href="?sort=codePostal&order=<?php echo $sort == 'codePostal' && $order == 'asc' ? 'desc' : 'asc'; ?>">Code Postal</a></th>
+                    <th><a href="?sort=maitreStg&order=<?php echo $sort == 'maitreStg' && $order == 'asc' ? 'desc' : 'asc'; ?>">Maître de stage</a></th>
+                    <th><a href="?sort=mail&order=<?php echo $sort == 'mail' && $order == 'asc' ? 'desc' : 'asc'; ?>">Adresse mail du maître de stage</a></th>
+                    <th><a href="?sort=telephone&order=<?php echo $sort == 'telephone' && $order == 'asc' ? 'desc' : 'asc'; ?>">Téléphone</a></th>
+                    <th><a href="?sort=annee&order=<?php echo $sort == 'annee' && $order == 'asc' ? 'desc' : 'asc'; ?>">Année</a></th>
+                </tr>
+                <?php
+                foreach ($resultat as $res) {
+                    echo "<tr>
                         <td><input type='hidden' name='nomEnt' value='$res[0]'>$res[0]</td>
                         <td><input type='hidden' name='ville' value='$res[1]'>$res[1]</td>
                         <td><input type='hidden' name='codePostal' value='$res[2]'>$res[2]</td>
@@ -81,12 +94,14 @@ else {
                         <td><input type='hidden' name='telephone' value='$res[5]'>$res[5]</td>
                         <td><input type='hidden' name='annee' value='$res[7]'>$res[7]</td>
                     </tr>";
-            }
-            ?>
-        </table>
-        <br>
-        </center>
-    </form>
+                }
+                ?>
+            </table>
+            <br>
+            </center>
+        </form>
+    </main>
+    <footer></footer>
 </body>
 
 </html>

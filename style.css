@@ -28,6 +28,7 @@ h2
     padding: 10px;
     border-radius: 10px;
 }
+
 h3[name="entreprise"]{
     color: #ffffff;
     background-color: #0085b9;
@@ -40,7 +41,6 @@ h3[name="entreprise"]{
     height: auto;
     padding: 10px;
     border-radius: 10px;
-
 }
 
 h3 {
@@ -76,21 +76,18 @@ a:hover {
     text-decoration: none;
 }
 
-
 td {
     color: #ffffff;
     text-align: center;
     background-color: #1c57c5;
-
-}
-
-th {
+  
+  }
+  
+  th {
     text-align: center;
-    color: #2ea81c;
-    background-color: white;
-    padding: 10px;
-    border-radius: 10px;
-}
+    background-color: #ffffff;
+    color: #0f6bbd;
+  }
 
 div {
     text-align: center;
@@ -109,7 +106,6 @@ button {
 
 input[type="submit"],
 select {
-
     display: flex;
     flex-direction: column;
     align-items: center;

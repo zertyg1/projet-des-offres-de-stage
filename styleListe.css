@@ -64,7 +64,6 @@ a:hover {
   text-decoration: none;
 }
 
-
 td {
   color: #ffffff;
   text-align: center;
@@ -74,7 +73,8 @@ td {
 
 th {
   text-align: center;
-  background-color: #1c57c5;
+  background-color: #0087f5;
+
 }
 
 div {
@@ -83,7 +83,6 @@ div {
 }
 
 input[type="text"],
-
 button {
   border-radius: 5px;
   border: none;
@@ -91,11 +90,11 @@ button {
   width: auto;
 }
 
-footer{
+header {
   display: block;
 }
 
-.BasDePage {
+.HautDePage {
   text-align: center;
   color: #fff;
   background-color: #0f6bbd;

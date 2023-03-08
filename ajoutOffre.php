@@ -46,44 +46,63 @@ if (isset($_POST['ajouter'])) {
 </head>
 
 <body>
-    <div class="navbar navbar-default">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav">
-                <li><a href="listeAdmin.php">Liste des stages</a></li>
-                <li><a href="modifierOffre.php">Modifer une offre</a></li>
-                <li><a href="logout.php">Déconnexion</a></li>
-            </ul>
+    <header>
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><a href="listeAdmin.php" style="color: #0f6bbd; background-color: white;">Liste des stages</a></li>
+                    <li><a href="modifierOffre.php" style="color: #eea236; background-color: white;">Modifer une offre</a></li>
+                    <li><a href="logout.php" style="color: red; background-color: white;">Déconnexion</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <form action="" method="post">
-        <center>
-            <h1>Ajouter une offre</h1>
-            <br>
-            <table class="table">
-                <tr>
-                    <th>Entreptrise de stage</th>
-                    <th>Ville</th>
-                    <th>Code Postal</th>
-                    <th>Maitre de stage</th>
-                    <th>Adresse mail de maitre de stage</th>
-                    <th>Téléphone</th>
-                    <th>Année</th>
-                </tr>
-                <tr>
-                    <td><input type='text' name='nomEnt'></td>
-                    <td><input type='text' name='ville'></td>
-                    <td><input type='text' name='codePostal'></td>
-                    <td><input type='text' name='maitreStg'></td>
-                    <td><input type="mail" name='mail'></td>
-                    <td><input type='text' name='telephone'></td>
-                    <td><input type='text' name='annee'></td>
-                </tr>
-            </table>
-            <input type="submit" value="Ajouter" class='btn btn-success' name="ajouter">
-            <h3 id="msg" style="color: red;"><?php echo $msg ?? null ?></h3>
+    </header>
+    <main>
+        <form action="" method="post">
+            <center>
+                <h1>Ajouter une offre</h1>
+                <br>
 
-        </center>
-    </form>
+                <table class="table">
+                    <tr>
+                        <th>Entreptrise de stage</th>
+                        <th>Ville</th>
+                        <th>Code Postal</th>
+                        <th>Maitre de stage</th>
+                        <th>Adresse mail de maitre de stage</th>
+                        <th>Téléphone</th>
+                        <th>Année</th>
+                    </tr>
+                    <tr>
+                        <td><input type='text' name='nomEnt'></td>
+                        <td><input type='text' name='ville'></td>
+                        <td><input type='text' name='codePostal'></td>
+                        <td><input type='text' name='maitreStg'></td>
+                        <td><input type="mail" name='mail'></td>
+                        <td><input type='text' name='telephone'></td>
+                        <td><input type='text' name='annee'></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Ajouter" class='btn btn-success' name="ajouter">
+                <h3 id="msg" style="color: red;"><?php echo $msg ?? null ?></h3>
+
+            </center>
+        </form>
+    </main>
+    <footer>
+        <br><br><br>
+        <div class="BasDePage">
+            Réalisé par :
+            <strong>Victor ROBILLARD</strong>,
+            <strong>Abdellah ADANSAR</strong>
+            <br>
+            Pour le projet :
+            <strong>Liste des offres de stage</strong>
+            <br>
+            Supervisé par :
+            <strong> Mme Hadhoum BOUKACHOUR </strong>
+        </div>
+    </footer>
 </body>
 
 </html>

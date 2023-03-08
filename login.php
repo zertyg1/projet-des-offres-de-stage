@@ -58,41 +58,46 @@ if (isset($_POST['user'])) {
 </head>
 
 <body>
-    <center>
+    <header>
         <h1>Connexion</h1>
-        <form action="" method="POST">
-            <div class="login">
-                <table border="">
-                    <tr>
-                    <td>Identifiant</td>
-                    <th><input type="text" placeholder="Identifiant" name="user"></th>
-                    </tr>
-                    <tr>
-                    <td><span>Mot de passe</span></td>
-                    <th><input type="password" placeholder="Mot de passe" name="pass"></th>
-                    </tr>
-                    <tr>
-                    <th><input type="submit" value="Se connecter"></th>
-                    </tr>
-                    <tr>
-                    <td name="pasInscrit">Vous n'êtes pas encore inscrit ?</td>
-                    </tr>
-                </table>
-                <a href="register.php">Créez votre compte</a><br>
-            </div>
-            <h4 id="msg" style="color: red;"><?php echo $msg ?? null ?></h4>
-    </center>
-    </form>
+    </header>
+    <main>
+        <center>
+
+            <form action="" method="POST">
+                <div class="login">
+                    <table border="">
+                        <tr>
+                            <td>Identifiant</td>
+                            <th><input type="text" placeholder="Identifiant" name="user"></th>
+                        </tr>
+                        <tr>
+                            <td><span>Mot de passe</span></td>
+                            <th><input type="password" placeholder="Mot de passe" name="pass"></th>
+                        </tr>
+                        <tr>
+                            <th><input type="submit" value="Se connecter"></th>
+                        </tr>
+                        <tr>
+                            <td name="pasInscrit">Vous n'êtes pas encore inscrit ?</td>
+                        </tr>
+                    </table>
+                    <a href="register.php">Créez votre compte</a><br>
+                </div>
+                <h4 id="msg" style="color: red;"><?php echo $msg ?? null ?></h4>
+        </center>
+        </form>
+    </main>
     <footer>
         <div class="BasDePage">
-            " Réalisé par : "
+            Réalisé par :
             <strong>Victor ROBILLARD</strong>,
             <strong>Abdellah ADANSAR</strong>
             <br>
-            " Pour le projet : "
+            Pour le projet :
             <strong>Liste des offres de stage</strong>
             <br>
-            "Supervisé par : "
+            Supervisé par :
             <strong> Mme Hadhoum BOUKACHOUR </strong>
         </div>
     </footer>
