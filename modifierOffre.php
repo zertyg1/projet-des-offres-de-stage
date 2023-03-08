@@ -50,8 +50,8 @@ $resultat = mysqli_fetch_all($resut);
             $resEnt = mysqli_query($conn, "select * from offre where nomEnt='" . $ent . "'");
             $resultatEnt = mysqli_fetch_all($resEnt);
             foreach ($resultatEnt as $reEnt) {
-            if (isset($_POST['choisir']) && !empty($_POST['entreprise'])) {
-                echo '
+                if (isset($_POST['choisir']) && !empty($_POST['entreprise'])) {
+                    echo '
             <table class="table">
             <tr>
                 <th>Entreptrise de stage</th>
@@ -64,7 +64,7 @@ $resultat = mysqli_fetch_all($resut);
                 <th>Modifier</th>
             </tr>
             <tr>';
-                
+
                     echo "
                 <td><input type='hidden' name='nomEnt' value='$reEnt[0]'>$reEnt[0]</td>
                 <td><input type='text' name='ville' value='$reEnt[1]'></td>
@@ -100,7 +100,7 @@ $resultat = mysqli_fetch_all($resut);
     </main>
     <footer>
         <div class="BasDePage">
-        Réalisé par :
+            Réalisé par :
             <strong>Victor ROBILLARD</strong>,
             <strong>Abdellah ADANSAR</strong>
             <br>

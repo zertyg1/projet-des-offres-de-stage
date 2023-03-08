@@ -127,7 +127,7 @@ a:hover {
   text-decoration: none;
 }
 
-td{
+td {
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -142,7 +142,7 @@ td{
   border: lightskyblue;
 }
 
-td[name="pasInscrit"]{
+td[name="pasInscrit"] {
   width: 100%;
 }
 

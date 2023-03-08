@@ -14,8 +14,7 @@ form {
 }
 
 h1,
-h2
- {
+h2 {
     color: #ffffff;
     background-color: #0085b9;
     display: flex;
@@ -29,7 +28,7 @@ h2
     border-radius: 10px;
 }
 
-h3[name="entreprise"]{
+h3[name="entreprise"] {
     color: #ffffff;
     background-color: #0085b9;
     display: flex;
@@ -80,14 +79,14 @@ td {
     color: #ffffff;
     text-align: center;
     background-color: #1c57c5;
-  
-  }
-  
-  th {
+
+}
+
+th {
     text-align: center;
     background-color: #ffffff;
     color: #0f6bbd;
-  }
+}
 
 div {
     text-align: center;

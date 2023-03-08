@@ -46,7 +46,7 @@ else {
 <body>
     <header>
         <div class="HautDePage">
-        Réalisé par :
+            Réalisé par :
             <strong>Victor ROBILLARD</strong>,
             <strong>Abdellah ADANSAR</strong>
             <br>
